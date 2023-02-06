@@ -4,6 +4,8 @@ print('I am going to ask you a few questions. After typing an answer, press ente
 
 #requests name from customer and greets by name
 userName = input('\nEnter your name: ')
+while len(userName) == 0:
+    userName = input("Name cannot be blank! Please enter your name: ")
 if userName.lower() == 'marcello martinez':
     print(f'\nWelcome back sir, all systems prepared.')
 else:
@@ -11,11 +13,21 @@ else:
 
 #variables for pizza such as size,flavor,crust,amount, and method of delivery
 size = input('\nWhat size do you want? Enter small, medium, or large: ')
+while size.lower() not in ["small", "medium", "large"]:
+    size = input("Invalid value! Please enter small, medium, or large: ")
 flavor = input("\nEnter flavor of pizza: ")
+while len(flavor) == 0:
+    flavor = input("Flavor cannot be blank! Please enter a flavor: ")
 crusttype = input('\nWhat type of crust do you want: ')
+while len(crusttype) == 0:
+    crusttype = input("Crust type cannot be blank! Please enter crust type: ")
 quantity = input('\nHow many of these do you want to order? Enter a numeric value: ')
+while not quantity.isdigit():
+    quantity = input("\nValue not recognized. Please enter a numeric value: ")
 quantity = int(quantity)   
 method = input('\nIs this carry out or delivery: ')
+while method.lower() not in ["carry out", "delivery"]:
+    method = input("Invalid value! Please enter carry out or delivery: ")
 
 #if else statement for price-size and method of recieving order.
 if size.lower() == 'small':
